@@ -196,3 +196,72 @@ list_rankings.reverse()
 print(f'List of rankings after reversing: {list_rankings}')
 
 
+
+""" Packages """
+
+# pip3 install numpy
+# pip3 install pandas
+# pip3 install matplotlib
+# pip3 install seaborn
+# pip3 install scikit-learn
+
+# import numpy as np
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# from sklearn.model_selection import train_test_split
+
+
+import math
+
+C = 2 * 0.43 * math.pi
+print(f'Value of C: {C}')
+
+from math import pi
+C = 2 * 0.43 * pi
+print(f'Value of C: {C}')
+
+
+
+""" Packages: Numpy """
+
+import numpy as np
+
+list_rankings = [4.75, 1.38, 4.03, 3.93, 4.17, 4.23, 2.68, 1.38, 4.10, 4.20, 2.60]
+
+np_rankings = np.array(list_rankings)
+print(f'Numpy array of rankings:{np_rankings} type: {type(np_rankings)} shape: {np_rankings.shape}')
+
+
+np_rankings_offset = np_rankings * 0.95
+print(f'Numpy array of rankings after offset: {np_rankings_offset}')
+
+list_scores = [85, 90, 78, 92, 88]
+np_scores = np.array(list_scores)
+mean_score = np.mean(np_scores)
+print(f'Mean score: {mean_score}')
+
+np_scores_index_4 = np_scores[4]
+print(f'Index 4 of numpy array of scores: {np_scores_index_4}')
+
+print(f'Index 2 to 4 of numpy array of scores: {np_scores[2:5]}')
+
+""" 2D Numpy Arrays """
+
+np_2d_array = np.array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                        [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]])
+
+print(f'2D Numpy array: {np_2d_array} shape: {np_2d_array.shape}')
+
+np_2d_array_index_1_3 = np_2d_array[1][3]
+print(f'Index 1,3 of 2D numpy array: {np_2d_array_index_1_3}')
+
+np_2d_second_column = np_2d_array[:, 1]
+print(f'Second column of 2D numpy array: {np_2d_second_column}')
+
+fifth_item_of_first_row = np_2d_array[0][4]
+print(f'Fifth item of first row of 2D numpy array: {fifth_item_of_first_row}')
+
+fith_item_of_first_column = np_2d_array[4][0]
+print(f'Fifth item of first column of 2D numpy array: {fith_item_of_first_column}')
