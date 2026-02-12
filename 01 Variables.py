@@ -263,5 +263,86 @@ print(f'Second column of 2D numpy array: {np_2d_second_column}')
 fifth_item_of_first_row = np_2d_array[0][4]
 print(f'Fifth item of first row of 2D numpy array: {fifth_item_of_first_row}')
 
-fith_item_of_first_column = np_2d_array[4][0]
-print(f'Fifth item of first column of 2D numpy array: {fith_item_of_first_column}')
+fifth_item_of_first_column_using_slice = np_2d_array[4:5, 0]
+print(f'Fifth item of first column of 2D numpy array using slice: {fifth_item_of_first_column_using_slice}')
+
+
+player_heights_inches = np.array([70, 72, 68, 75, 80, 65, 78, 74, 69])
+player_weights_pounds = np.array([180, 190, 170, 210, 250, 160, 230, 220, 175])
+player_ages = np.array([25, 30, 35, 28, 32, 38, 22, 27, 40])
+
+np_player_data = np.column_stack((player_heights_inches, player_weights_pounds, player_ages))
+print(f'3D Numpy array of player data: {np_player_data} shape: {np_player_data.shape}')
+
+np_convesion = np.array([0.0254, 0.453592, 1])
+np_converted_player_data = np_player_data * np_convesion
+print(f'Converted player data: {np_converted_player_data} shape: {np_converted_player_data.shape}')
+
+########## NUMPY ARRAY OPERATIONS ##########
+
+
+np_height = np_player_data[:, 0]
+np_weight = np_player_data[:, 1]
+np_age = np_player_data[:, 2]
+
+np_mean_height = np.mean(np_height)
+print(f'Mean height: {np_mean_height}')
+
+np_median_weight = np.median(np_weight)
+print(f'Median weight: {np_median_weight}')
+
+np_player_data = [[70, 180, 25],
+                  [72, 190, 30],
+                  [68, 170, 35],
+                  [75, 210, 28],
+                  [80, 250, 32],
+                  [65, 160, 38],
+                  [78, 230, 22],
+                  [74,220, 27],
+                  [69, 175, 40]]
+
+np_player_data_array = np.array(np_player_data)
+np_player_data_updates = np_player_data_array * np.array([0.0254, 0.453592, 1])
+print(f'Updated player data array: {np_player_data_updates} shape: {np_player_data_updates.shape}')
+
+
+# Calculate height (col 1 is [:, 0]) overview
+
+mean_height = np.mean(np_player_data_updates[:, 0])
+max_height = np.max(np_player_data_updates[:, 0])
+min_height = np.min(np_player_data_updates[:, 0])
+std_dev_height = np.std(np_player_data_updates[:, 0])
+median_height = np.median(np_player_data_updates[:, 0])
+correlation_height = np.corrcoef(np_player_data_updates[:, 0], np_player_data_updates[:, 1])
+
+print(f'Mean height: {mean_height}')
+print(f'Max height: {max_height}')
+print(f'Min height: {min_height}')
+print(f'Standard deviation of height: {std_dev_height}')
+print(f'Median height: {median_height}')
+print(f'Correlation between height and weight: {correlation_height}')
+
+
+
+""" Matplotlib """
+# pip3 install matplotlib
+import matplotlib.pyplot as plt
+
+year = [1950, 1970, 1990, 2010, 2020]
+population = [2.519, 3.692, 5.263, 6.972, 7.794]
+
+plt.plot(year, population)
+plt.title('World population growth')
+plt.xlabel('Year')
+plt.ylabel('Population (billions)')
+plt.show()
+
+
+plt.scatter(year, population)
+plt.title('World population growth | Scatter plot')
+plt.xlabel('Year')
+plt.ylabel('Population (billions)')
+plt.show()
+
+
+
