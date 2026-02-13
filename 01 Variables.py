@@ -345,4 +345,46 @@ plt.ylabel('Population (billions)')
 plt.show()
 
 
+plt.bar(year, population)
+plt.title('World population growth | Bar chart')
+plt.xlabel('Year')
+plt.ylabel('Population (billions)')
+plt.show()
+plt.clf() # clear figure to reset x axis to linear scale for next plot
+
+### Set x axis to logarithmic scale
+plt.plot(year, population)
+plt.xscale('log')
+plt.show()
+plt.clf() # clear figure to reset x axis to linear scale for next plot
+
+### download gapminder dataset
+import pandas as pd
+# check if file already downloaded
+
+gapminder_data = pd.read_csv('https://github.com/kirenz/datasets/blob/master/gapminder.csv?raw=true')
+print(gapminder_data.head())
+
+plt.scatter(gapminder_data['gdpPercap'], gapminder_data['lifeExp'])
+plt.xscale('log')
+plt.title('GDP per capita vs Life Expectancy')
+plt.xlabel('GDP per capita (log scale)')
+plt.ylabel('Life Expectancy')
+plt.show()
+plt.clf()
+
+### Histograms
+plt.hist(gapminder_data['lifeExp'], bins=20)
+plt.show()
+plt.clf()
+
+
+life_exp_1952 = gapminder_data[gapminder_data['year'] == 1952]['lifeExp']
+plt.hist(life_exp_1952, bins=20)
+plt.title('Life Expectancy in 1952')
+plt.xlabel('Life Expectancy')
+plt.ylabel('Frequency')
+plt.show()
+plt.clf()
+
 
